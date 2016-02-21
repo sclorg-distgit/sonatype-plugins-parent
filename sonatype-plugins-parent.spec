@@ -6,7 +6,7 @@
 
 Name:           %{?scl_prefix}%{pkg_name}
 Version:        8
-Release:        6.10%{?dist}
+Release:        6.11%{?dist}
 Summary:        Sonatype Plugins Parent POM
 BuildArch:      noarch
 License:        ASL 2.0
@@ -15,7 +15,7 @@ Source:         https://github.com/sonatype/oss-parents/tarball/plugins-parent-%
 Source1:        http://www.apache.org/licenses/LICENSE-2.0.txt
 
 BuildRequires:  %{?scl_prefix_java_common}maven-local
-BuildRequires:  maven30-forge-parent
+BuildRequires:  %{?scl_prefix}forge-parent
 
 %description
 This package provides Sonatype plugins parent POM used by other Sonatype
@@ -23,20 +23,20 @@ packages.
 
 %prep
 %setup -q -n sonatype-oss-parents-%{tag}
-%{?scl:scl enable maven30 %{scl} - <<"EOF"}
+%{?scl:scl enable %{scl} - <<"EOF"}
 set -e -x
 cp -p %{SOURCE1} LICENSE
 %{?scl:EOF}
 
 %build
-%{?scl:scl enable maven30 %{scl} - <<"EOF"}
+%{?scl:scl enable %{scl} - <<"EOF"}
 set -e -x
 cd ./plugins-parent
 %mvn_build
 %{?scl:EOF}
 
 %install
-%{?scl:scl enable maven30 %{scl} - <<"EOF"}
+%{?scl:scl enable %{scl} - <<"EOF"}
 set -e -x
 cd ./plugins-parent
 %mvn_install
@@ -47,6 +47,9 @@ cd ./plugins-parent
 %doc LICENSE
 
 %changelog
+* Mon Jan 11 2016 Michal Srb <msrb@redhat.com> - 8-6.11
+- maven33 rebuild #2
+
 * Sat Jan 09 2016 Michal Srb <msrb@redhat.com> - 8-6.10
 - maven33 rebuild
 
