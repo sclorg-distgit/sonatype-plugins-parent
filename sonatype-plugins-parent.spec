@@ -6,7 +6,7 @@
 
 Name:           %{?scl_prefix}%{pkg_name}
 Version:        8
-Release:        6.11%{?dist}
+Release:        6.12%{?dist}
 Summary:        Sonatype Plugins Parent POM
 BuildArch:      noarch
 License:        ASL 2.0
@@ -14,7 +14,7 @@ URL:            https://github.com/sonatype/oss-parents
 Source:         https://github.com/sonatype/oss-parents/tarball/plugins-parent-%{version}#/%{pkg_name}-%{version}.tar.gz
 Source1:        http://www.apache.org/licenses/LICENSE-2.0.txt
 
-BuildRequires:  %{?scl_prefix_java_common}maven-local
+BuildRequires:  %{?scl_prefix}maven-local
 BuildRequires:  %{?scl_prefix}forge-parent
 
 %description
@@ -47,6 +47,9 @@ cd ./plugins-parent
 %doc LICENSE
 
 %changelog
+* Mon Feb 08 2016 Michal Srb <msrb@redhat.com> - 8-6.12
+- Fix BR on maven-local & co.
+
 * Mon Jan 11 2016 Michal Srb <msrb@redhat.com> - 8-6.11
 - maven33 rebuild #2
 
