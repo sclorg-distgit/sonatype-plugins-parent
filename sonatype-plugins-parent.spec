@@ -5,7 +5,7 @@
 
 Name:           %{?scl_prefix}sonatype-plugins-parent
 Version:        8
-Release:        10.1%{?dist}
+Release:        10.2%{?dist}
 Summary:        Sonatype Plugins Parent POM
 BuildArch:      noarch
 Group:          Development/Libraries
@@ -37,6 +37,9 @@ cd ./plugins-parent
 %doc LICENSE
 
 %changelog
+* Thu Jun 22 2017 Michael Simacek <msimacek@redhat.com> - 8-10.2
+- Mass rebuild 2017-06-22
+
 * Wed Jun 21 2017 Java Maintainers <java-maint@redhat.com> - 8-10.1
 - Automated package import and SCL-ization
 
